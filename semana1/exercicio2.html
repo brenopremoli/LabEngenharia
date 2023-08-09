@@ -8,7 +8,17 @@
 <body>
     <h1>Exercício 2</h1>
     <script type="text/javascript">
-        let x = prompt("Digite um número:","");
+        let x;
+        while(isNaN(x))
+        {
+            x = prompt("Digite um número:","");
+            x = parseInt(x);
+            while(x <= 0)
+            {
+                x = prompt("Digite um número:","");
+                x = parseInt(x);
+            }
+        }
         let c;
         let m = 0;
         for (c = 1; c <= x; c++)
@@ -19,13 +29,13 @@
             }
         }
         if(x == 1){
-            document.write("NÃO É PRIMO");
+            alert("NÃO É PRIMO");
         }
-        else if(m <= 2){
-            document.write("É PRIMO");
+        else if(m >= 0 && m <= 2){
+            alert("É PRIMO");
         }
         else{
-            document.write("NÃO É PRIMO");
+            alert("NÃO É PRIMO");
         }
     </script>
     <br>
