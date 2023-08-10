@@ -19,12 +19,15 @@
                 x = parseInt(x);
             }
         }
-        if(x % 2 == 0){
-            alert("É PAR");
-        }
-        else {
-            alert("É ÍMPAR");
-        }
+        let c = x;
+        let fat = 1;
+        do {
+            fat = fat * c;
+            c--;
+        } while(c >= 1);
+
+            alert("Fatorial de " + x + "! = " + fat);
+
     </script>
     <br>
     <p><a href="../semana1.html">Voltar</a></p>
