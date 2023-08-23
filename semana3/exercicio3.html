@@ -10,23 +10,20 @@
         <p>Digite: <input id="dado" type="text"></p>
         <button onclick="analisaFrase()">Analisar</button>
         <p><a href="../semana3.html">Voltar</a></p>
+
     <script>
-        let f = document.getElementById("dado");
-        let i = 0;
-            function analisaFrase(){
-                for (let x = 0; x < f.length; x++)
-                {
-                    f[x] = f[f.length - x];
-                    i++;
-                }
-                if(i == f.length){
-                    document.write("Palindromo");
-                }
-                else{
-                    document.write("Não palindromo");
-                }
+        function analisaFrase(){
+            let frase = document.getElementById('dado').value.toLowerCase().replace(/[^a-z0-9]/g, ''); 
+            let esarf = frase.split('').reverse().join(''); 
             }
-            
+
+            if (frase === esarf) {
+                alert("Palíndromo");
+            }
+            else {
+                alert("Não é Palíndromo");
+            }
     </script>
+
 </body>
 </html>

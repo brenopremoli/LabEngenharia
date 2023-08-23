@@ -7,18 +7,19 @@
 </head>
 <body>
     <h1>Exercício 2</h1>
+    <p id="time"></p>
+    <p><a href="../semana3.html">Voltar</a></p>
     <script>
-        
-        setTimeout(mostraHora(), 5000)
-
         function mostraHora(){
             let data = new Date();
             let hora = data.getHours();
             let minuto = data.getMinutes();
             let segundo = data.getSeconds();
-            document.write(hora,":",minuto,":",segundo);
-            window.location.reload();
+            let x = hora + ":" + minuto + ":" +segundo;
+            document.getElementById('time').textContent = x;
+            setTimeout(mostraHora, 1000);
         }
+        mostraHora();
     </script>
     
 </body>
