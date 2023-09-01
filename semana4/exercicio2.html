@@ -10,10 +10,10 @@
 
         <p>Marca: <input id="marca" type="text" value="" required></p>
         <p>Modelo: <input id="modelo" type="text" value="" required></p>
-        <p>Ano: <input id="ano" type="number" value="" required></p>
-        <p>Cor: <input id="cor" type="text" value=""></p>
-        <p>Quilometragem: <input id="km" type="number" value="" required></p>
-        <p>Valor na tabela Fipe: R$ <input id="valor" type="number" value="" required></p>
+        <p>Ano: <input id="ano" type="number" value="" min="1" maxlength="4" required></p>
+        <p>Cor: <input id="cor" type="text" value="" ></p>
+        <p>Quilometragem: <input id="km" type="number" value="" min="0" required></p>
+        <p>Valor na tabela Fipe: R$ <input id="valor" type="number" value=""  min="0.0" required></p>
         <button onclick="enviar()">Exibir</button>
 
     <p id="cadastro"></p>
