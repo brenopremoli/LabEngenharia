@@ -25,6 +25,7 @@
     </div>
     <h2>HomensㅤㅤMulheres</h2>
     <h3>Total: <span id="total">0</span></h3>
+    <p><button onclick="zera()"><img src="imagens/zera.png" alt=""></button></p>
     <p><a href="../semana5.html">Voltar</a></p>
     
     <script>
@@ -63,6 +64,18 @@
         function soma() {
             let total = document.getElementById('total');
             total.textContent = contadorM + contadorH;
+        }
+
+        function zera() {
+            contadorH = 0;
+            contadorM = 0;
+
+            let contadorHomem = document.getElementById('contaHomem');
+            contadorHomem.textContent = contadorH;
+            let contadorMulher = document.getElementById('contaMulher');
+            contadorMulher.textContent = contadorM;
+
+            soma();
         }
     </script>
 </body>
