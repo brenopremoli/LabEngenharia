@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Exercício 1</h1>
-    <p id="total"></p>
+    <p id="total1"></p>
     <div id="calculadora">
         <table>
             <tr>
@@ -47,24 +47,24 @@
     
     <script>
         function adicionar(numero) {
-            let total = document.getElementById('total');
+            let total = document.getElementById('total1');
             total.textContent += numero;
         }
 
         function calcular() {
-            let total = document.getElementById('total').textContent;
+            let total = document.getElementById('total1').textContent;
             if (total) {
                 total = eval(total);
-                document.getElementById('total').textContent = total;
+                document.getElementById('total1').textContent = total;
             }
         }
 
         function limpar() {
-            document.getElementById('total').textContent = "";
+            document.getElementById('total1').textContent = "";
         }
 
         function inverterSinal() {
-            let total = document.getElementById('total');
+            let total = document.getElementById('total1');
             let numeroAtual = parseFloat(total.textContent);
             if (numeroAtual < 0) {
                 total.textContent = Math.abs(numeroAtual);
