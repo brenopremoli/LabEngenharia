@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let expressao = ''; // Variável para armazenar a expressão matemática
+    let expressao = ''; 
+    let resultado = ''; 
 
     function adicionar(numero) {
         expressao += numero;
@@ -7,35 +8,30 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function calcular() {
-        let expressao = document.getElementById('total').textContent;
-        if (expressao) {
-            expressao = eval(expressao);
-            document.getElementById('total').textContent = expressao;
-        }
+            resultado = eval(expressao);
+            expressao = resultado.toString(); 
+            atualizarTela();
     }
 
     function limpar() {
         expressao = '';
+        resultado = '';
         atualizarTela();
     }
 
     function inverterSinal() {
-        if (expressao.startsWith('-')) {
-            expressao = expressao.substring(1); // Remover o sinal negativo
-        } else {
-            expressao = '-' + expressao; // Adicionar um sinal negativo
+        if (expressao !== '0') {
+            if (expressao !== '') {
+                if (expressao.startsWith('-')) {
+                    expressao = expressao.substring(1); 
+                } else {
+                    expressao = '-' + expressao;
+                }
+                atualizarTela();
+            }
         }
-        atualizarTela();
     }
-
-    function criarBotao(texto, classe, callback) {
-        let botao = document.createElement('button');
-        botao.textContent = texto;
-        botao.className = classe;
-        botao.addEventListener('click', callback);
-        return botao;
-    }
-
+    
     function atualizarTela() {
         let total = document.getElementById('total');
         if (!total) {
@@ -43,7 +39,15 @@ document.addEventListener('DOMContentLoaded', function () {
             total.id = 'total';
             document.getElementById('calculadora').appendChild(total);
         }
-        total.textContent = expressao;
+        total.textContent = expressao || resultado;
+    }
+
+    function criarBotao(texto, classe, funcao) {
+        let botao = document.createElement('button');
+        botao.textContent = texto;
+        botao.className = classe;
+        botao.addEventListener('click', funcao);
+        return botao;
     }
 
     let div = document.getElementById('calculadora');
@@ -78,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     tabela.appendChild(linha1);
 
+
     let linha2 = document.createElement('tr');
 
     let button9 = document.createElement('td');
@@ -86,14 +91,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }));
     linha2.appendChild(button9);
     
-
     let button8 = document.createElement('td');
     button8.appendChild(criarBotao('8', 'cor3', function () {
         adicionar('8');
     }));
     linha2.appendChild(button8);
     
-
     let button7 = document.createElement('td');
     button7.appendChild(criarBotao('7', 'cor3', function () {
         adicionar('7');
@@ -110,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     let linha3 = document.createElement('tr');
-
 
     let button4 = document.createElement('td');
     button4.appendChild(criarBotao('4', 'cor3', function () {
@@ -140,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     let linha4 = document.createElement('tr');
-
 
     let button1 = document.createElement('td');
     button1.appendChild(criarBotao('1', 'cor3', function () {
@@ -186,8 +187,10 @@ document.addEventListener('DOMContentLoaded', function () {
     linha5.appendChild(colspan2); 
     
     let virgulaButton = document.createElement('td');
-    virgulaButton.appendChild(criarBotao(',', 'cor3'));
-    linha5.appendChild(virgulaButton);
+    virgulaButton.appendChild(criarBotao(',', 'cor3', function () {
+        adicionar('.');
+    }));
+    linha5.appendChild(virgulaButton); 
     
     let igualButton = document.createElement('td');
     igualButton.appendChild(criarBotao('=', 'cor1', function () {
