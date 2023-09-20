@@ -23,18 +23,15 @@
         const root = ReactDOM.createRoot(container);
 
         const now = "Venha estudar na Fatec!";
+        let index = 0; 
 
         function tick(){
-        for (let x = 0; x < now.length + 1; x++)
-            {
-            mostrar(x);
-            setTimeout(1000);
+            if (index <= now.length) {
+                root.render(<Elemento agora={now.substring(0, index)}/>)
+                index++;
+                setTimeout(tick, 1000);
             }
         } 
-
-        function mostrar(x){
-            root.render(<Elemento agora = {now.substring(0, x)}/>);
-        }
 
         tick();
 
