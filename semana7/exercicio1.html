@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Projeto - Semana 7</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Elemento({agora}){
+            return (
+                <div>
+                    <h1>{agora}</h1>
+                </div>
+            )
+        }
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+
+        const now = "Venha estudar na Fatec!";
+
+        function tick(){
+        for (let x = 0; x < now.length + 1; x++)
+            {
+            mostrar(x);
+            setTimeout(1000);
+            }
+        } 
+
+        function mostrar(x){
+            root.render(<Elemento agora = {now.substring(0, x)}/>);
+        }
+
+        tick();
+
+    </script>
+</body>
+</html>
