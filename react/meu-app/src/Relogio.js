@@ -1,5 +1,3 @@
-import React from 'react';
-
 function mostraHora(){
   let data = new Date();
   let hora = data.getHours();
@@ -28,7 +26,9 @@ function Relogio() {
   mostraHora();
 
   return (
+    <div>
     <h1 id="hora"></h1>
+    </div>
   );
 }
 
