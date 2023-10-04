@@ -15,9 +15,9 @@ function Elemento() {
       }
     }
 
-    const timer = setInterval(tick, 1000);
+    const tempo = setInterval(tick, 1000);
 
-    return () => clearInterval(timer);
+    return () => clearInterval(tempo);
   }, []);
 
   return (
